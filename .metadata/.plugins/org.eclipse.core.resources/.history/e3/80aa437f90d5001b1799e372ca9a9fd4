@@ -1,0 +1,22 @@
+package polymorphism.game;
+
+public class DarkElf extends Monster{
+	private int hp, atk, def;
+	
+	public DarkElf() {
+		hp = 80;
+		atk = 9;
+		def = 6;
+		
+	}
+	
+	public void getMonsterInfo() {
+		super.getMonsterInfo();
+	}
+	
+	public void battle (Player p) {
+		super.battle(p);
+	}
+	
+	
+}

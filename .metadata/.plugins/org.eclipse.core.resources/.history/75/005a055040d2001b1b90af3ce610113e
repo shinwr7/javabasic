@@ -1,0 +1,17 @@
+package structure;
+
+public class LolPlayer {
+	
+	public String id;
+	public String tier;
+	public String line;
+	public int lev;
+	
+	public void getInfoL() {
+		System.out.println(id);
+		System.out.println(tier);
+		System.out.println(line);
+		System.out.println(lev);
+	}
+	
+}

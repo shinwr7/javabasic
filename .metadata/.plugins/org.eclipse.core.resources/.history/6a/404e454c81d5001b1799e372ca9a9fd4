@@ -1,0 +1,29 @@
+package overloading;
+
+public class OverTest {
+	public OverTest() {
+		String a = "0";
+		int b = 1;
+		System.out.println("1번 유형");
+	}
+	
+	public OverTest(String a) {
+		System.out.println("2번 유형");
+		int b =2;
+	}
+	
+	public OverTest(int b) {
+		System.out.println("3번 유형");
+		String a = "3";
+	}
+	
+	public OverTest(String a, int b) {
+		System.out.println("4번 유형");
+		
+	}
+
+	
+	public void showData() {
+		OverTest();
+	}
+}

@@ -1,0 +1,90 @@
+package interaction.game;
+
+public class Warrior {
+	private int hp, atk, def, mp, lev, exp;
+	
+	public Warrior () {
+		hp = 150;
+		atk=20;
+		def=5;	
+		mp = 0;
+		lev = 1;
+		exp = 0;
+	}
+	
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getAtk() {
+		return atk;
+	}
+
+	public void setAtk(int atk) {
+		this.atk = atk;
+	}
+
+	public int getDef() {
+		return def;
+	}
+
+	public void setDef(int def) {
+		this.def = def;
+	}
+
+	public int getMp() {
+		return mp;
+	}
+
+	public void setMp(int mp) {
+		this.mp = mp;
+	}
+
+	public int getLev() {
+		return lev;
+	}
+
+	public void setLev(int lev) {
+		this.lev = lev;
+	}
+
+	public int getExp() {
+		return exp;
+	}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+	public void huntDragon (Dragon a,int hp) {
+		
+		System.out.println("드래곤 사냥을 시작합니다.");
+		a.setHp(a.getHp()-(atk-a.getDef()));
+		System.out.println("드래곤에게 "+(atk-a.getDef())+"만큼의 피해를 입혔습니다.");
+		System.out.println("드래곤이 반격합니다.");
+		a.battleWithWarrior(this, hp);
+		hp=this.hp;
+		if (a.getHp()-(atk-a.getDef())<0) {
+			System.out.println("드래곤이 사망하였습니다.");
+			this.exp+=50;
+		} 
+		
+	}
+	public void getWarriorInfo() {
+		System.out.println("-----전사 상태-----");
+		System.out.println("레벨 : "+ lev);
+		System.out.println("체력 : "+ hp);
+		System.out.println("마나 : "+ mp);
+		System.out.println("공격력 : "+ atk);
+		System.out.println("경험치 : "+ exp);
+		
+	}
+	
+	
+	
+}
+

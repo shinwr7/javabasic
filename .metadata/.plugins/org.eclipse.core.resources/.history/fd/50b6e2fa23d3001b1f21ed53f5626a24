@@ -1,0 +1,32 @@
+package superclass;
+
+public class SuperAirplane extends Airplane {
+	
+	public SuperAirplane(int s) {
+		
+		super(s);
+		
+	}
+	
+	public void fly() {
+		
+		if (speed+500<=900) {
+			super.fly();
+		}else {
+			if(speed+500>900&&speed<=1300) {
+				speed+=500;
+				if(speed>1300) {
+					speed=1300;
+					System.out.println("초음속 비행 : " +speed);
+					System.out.println("최고속도 달성");
+				}
+				
+			if(speed>1300) {
+				speed=1300;
+				System.out.println("초음속 비행 : " +speed);
+				System.out.println("최고속도 달성");
+			}
+			}
+		}
+	}
+}

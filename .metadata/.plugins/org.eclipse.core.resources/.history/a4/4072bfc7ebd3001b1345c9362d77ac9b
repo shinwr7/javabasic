@@ -1,0 +1,19 @@
+package accessmodifier.game;
+
+public class Warrior extends Commoner{
+	
+	public Warrior () {
+		if(gethpInt()<=0) {
+			System.out.println("체력 부족으로 스킬 사용 불가");
+		}
+	}
+	public void doubleAttack () {
+		
+		System.out.println("-----전사 더블어택 사용-----");
+		doubleatksetM();
+		doubleatksetE();
+		doubleatksetH();
+		
+	}
+}
+

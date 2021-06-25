@@ -1,0 +1,15 @@
+package accessmodifier;
+
+public class Main2 {
+	public static void main(String[] args) {
+		
+		Warrior w1 = new Warrior("월계동파이리");
+		
+		w1.hunt();
+		w1.hunt();
+		w1.hunt();
+		
+		
+		
+	}
+}

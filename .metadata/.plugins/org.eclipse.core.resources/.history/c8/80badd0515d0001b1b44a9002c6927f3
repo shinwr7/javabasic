@@ -1,0 +1,12 @@
+package structure;
+
+public class Structure1 {
+	public static void main(String[] args) {
+		
+		Person a =new Person();
+		a.name="신우람";
+		a.age= 20;
+		a.pNum = "010-1234-5678";
+		System.out.println(a);
+	}
+}

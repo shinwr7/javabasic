@@ -1,0 +1,17 @@
+package accessmodifier.game;
+
+public class ProtectedCommoner {
+	protected int hp;
+	protected int mp;
+	protected int lev;
+	protected int exp;
+	protected int atk;
+	
+
+	public ProtectedCommoner() {
+		System.out.println();
+	}
+}
+
+	
+

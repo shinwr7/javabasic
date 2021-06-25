@@ -1,0 +1,19 @@
+package accessmodifier.game;
+
+public class Warrior extends Commoner{
+	
+	public Warrior () {
+		
+	}
+	public void doubleAttack () {
+		if(gethpInt()-10<0||getmpInt()-10<0) {
+			System.out.println("스킬 사용 불가");
+		}else {
+		System.out.println("-----전사 더블어택 사용-----");
+		doubleatksetH();
+		doubleatksetM();
+		doubleatksetE();
+		}
+	}
+}
+

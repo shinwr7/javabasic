@@ -1,0 +1,19 @@
+package interaction.game;
+
+public class Warrior {
+	private int hp, atk, def;
+	
+	public Warrior () {
+		hp =150;
+		atk=20;
+		def=5;	
+	}
+	
+	public void huntDragon () {
+		
+	}
+	
+	
+	
+}
+

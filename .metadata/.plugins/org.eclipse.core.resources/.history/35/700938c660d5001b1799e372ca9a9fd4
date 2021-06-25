@@ -1,0 +1,22 @@
+package interaction.game;
+
+public class Zombie {
+	private int hp, atk, def;
+	
+	public Zombie () {
+		hp = 15;
+		atk = 5; 
+		def = 1 ;
+				
+	}
+	
+	
+	public void battle (int uatk) {
+		
+		
+		
+	}
+	
+}
+
+

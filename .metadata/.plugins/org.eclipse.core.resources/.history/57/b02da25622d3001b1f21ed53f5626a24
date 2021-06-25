@@ -1,0 +1,10 @@
+package superclass;
+
+public class Main1 {
+	public static void main(String[] args) {
+		
+		SuperAirplane a = new SuperAirplane (0) ;
+		a.speed=400;
+		a.fly();
+		}
+}

@@ -1,0 +1,29 @@
+package interaction.game;
+
+public class Main {
+	public static void main(String[] args) {
+		Dragon a = new Dragon() ;
+		Warrior b = new Warrior() ;
+		
+		b.huntDragon(a);
+		b.getWarriorInfo();
+		a.getDragonInfo();
+		b.huntDragon(a);
+		b.getWarriorInfo();
+		a.getDragonInfo();
+		b.huntDragon(a);
+		b.getWarriorInfo();
+		a.getDragonInfo();
+		b.huntDragon(a);
+		b.getWarriorInfo();
+		a.getDragonInfo();
+		b.huntDragon(a);
+		b.getWarriorInfo();
+		a.getDragonInfo();
+		
+		
+		
+		
+		
+	}
+}

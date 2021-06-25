@@ -1,0 +1,32 @@
+package accessmodifier.game;
+
+public class ProtectedWarrior extends ProtectedCommoner{
+	
+	public ProtectedWarrior () {
+		
+	}
+	
+	public void hunt () {
+		hp -=2;
+		exp +=5;
+		System.out.println("-----스텟창-----");
+		System.out.println("현재 레벨 :"+ lev );
+		System.out.println("현재 체력 :"+ hp );
+		System.out.println("현재 마나 :"+ mp );
+		System.out.println("현재 공격력 :"+ atk );
+		System.out.println("현재 경험치 :"+ exp);
+	}
+	public void doubleatk( ) {
+		hp-=4;
+		mp-=5;
+		exp+=10;
+		System.out.println("-----스텟창-----");
+		System.out.println("현재 레벨 :"+ lev );
+		System.out.println("현재 체력 :"+ hp );
+		System.out.println("현재 마나 :"+ mp );
+		System.out.println("현재 공격력 :"+ atk );
+		System.out.println("현재 경험치 :"+ exp );
+		
+	}
+	
+}

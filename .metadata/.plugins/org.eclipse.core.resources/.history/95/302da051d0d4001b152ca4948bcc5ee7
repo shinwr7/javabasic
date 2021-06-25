@@ -1,0 +1,85 @@
+package interaction.game;
+
+public class Darkelf {
+		
+		private int hp, def, atk;
+		
+		
+		public Darkelf () {
+			hp = 50;
+			def = 4;
+			atk = 8;
+			
+		}
+		
+		public int getHp() {
+			return hp;
+		}
+
+		public void setHp(int hp) {
+			this.hp = hp;
+		}
+
+		public int getDef() {
+			return def;
+		}
+
+		public void setDef(int def) {
+			this.def = def;
+		}
+
+		public int getAtk() {
+			return atk;
+		}
+
+		public void setAtk(int atk) {
+			this.atk = atk;
+		}
+
+		public void battleWithWarrior (Warrior w) {
+			
+			
+			w.setHp(w.getHp()-(atk-def));
+			System.out.println("다크엘프가 "+(atk-def)+"만큼의 피해를 입혔습니다.");
+			
+			
+			
+			if(w.getHp()<0) {
+				System.out.println("다크엘프가 전사를 살해");
+				return;
+			}
+			
+		}
+		public void getDragonInfo() {
+			System.out.println("-----다크엘프 상태-----");
+			System.out.println("체력 : "+ hp);
+			System.out.println("방어력 : "+ def);
+			System.out.println("공격력 : "+ atk);
+		}
+		public void battlewithPriest (Priest p) {
+			
+			p.setHp(p.getHp()-(atk-def));
+			System.out.println("다크엘프가 "+(atk-def)+"만큼의 피해를 입혔습니다.");
+			
+			
+			
+			if(p.getHp()<0) {
+				System.out.println("다크엘프가 성직자를 살해");
+				return;
+		}}
+	public void battleWithAmazon (Amazon z) {
+			
+			
+			z.setHp(z.getHp()-(atk-def));
+			System.out.println("다크엘프가 "+(atk-def)+"만큼의 피해를 입혔습니다.");
+			
+			
+			
+			if(z.getHp()<0) {
+				System.out.println("드래곤이 전사를 살해");
+				return;
+			}
+	}
+	}
+
+

@@ -1,0 +1,21 @@
+package superclass;
+
+public class Airplane {
+	// 비행기는 속도를 가집니다. 
+	public int speed;
+	
+	// 생성자는 속도를 입력한 값으로 맞춰줍니다.
+	public Airplane(int s) {
+		speed = s;
+	}
+	
+	//fly() 메서드를 수행하면 속도가 500씩 붙습니다.
+	//단, 일반 비행기를 속도가 900 이상이 될 수 없습니다.
+	
+	public void fly() {
+		//속도를 조건식으로 체크해서
+		//최대 속도는 900을 초과할 수 없고
+		//최대 속도 미만에서 500씩 더해주는 로직 작성
+		System.out.println("시속" + speed+ "km/h로 비행중.");
+	}
+}

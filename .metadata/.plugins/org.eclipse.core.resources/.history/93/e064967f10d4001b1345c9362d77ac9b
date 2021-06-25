@@ -1,0 +1,43 @@
+package accessmodifier.game;
+
+public class Main {
+	public static void main(String[] args) {
+		Warrior w1 = new Warrior ();
+		
+		
+		
+		Magician m1 = new Magician();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.rest();
+		m1.rest();
+		m1.rest();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		m1.training();
+		
+		m1.training();
+	
+		Priest p1 = new Priest();
+		
+	}
+}

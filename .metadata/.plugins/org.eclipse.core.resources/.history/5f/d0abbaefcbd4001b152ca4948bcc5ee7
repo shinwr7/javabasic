@@ -1,0 +1,14 @@
+package interaction.game;
+
+public class Priest {
+	private int hp,mp,atk,lev,exp,def;
+	
+	public Priest () {
+		hp = 100;
+		mp = 300;
+		atk = 10;
+		lev = 1;
+		exp = 0;
+		def = 3;
+	}
+}

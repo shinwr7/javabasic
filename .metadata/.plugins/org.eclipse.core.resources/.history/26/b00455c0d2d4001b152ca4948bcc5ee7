@@ -1,0 +1,22 @@
+package interaction.game;
+
+public class Main {
+	public static void main(String[] args) {
+		//영웅
+		Warrior w = new Warrior() ;
+		Priest p = new Priest() ;
+		Amazon z = new Amazon() ;
+		
+		//몬스터
+		Dragon a = new Dragon() ;
+		Darkelf e = new Darkelf() ;
+		Undead u = new Undead () ;
+		
+		w.huntDarkelf(e);
+		w.huntDarkelf(e);
+		w.huntDarkelf(e);
+		w.huntDarkelf(e);
+		w.getWarriorInfo();
+		e.getDarkElfInfo();
+	}
+}

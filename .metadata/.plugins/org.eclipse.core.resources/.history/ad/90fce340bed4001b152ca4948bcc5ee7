@@ -1,0 +1,16 @@
+package accessmodifier.game;
+
+public class Monster {
+	
+	private int hp, atk, def;
+	
+	public Monster () {
+		hp= 20;
+		atk=10;
+		def=5;
+	}
+	
+	public void hitCommoner(Commoner a) {
+		a.setHp(a.getHp()-this.atk);
+	}
+}

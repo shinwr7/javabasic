@@ -1,0 +1,11 @@
+package polymorphism.game;
+
+public class DarkElf extends Monster{
+	
+	
+	public DarkElf(80,5, 1) {
+		
+	}
+	
+	
+}

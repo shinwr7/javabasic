@@ -1,0 +1,19 @@
+package accessmodifier3;
+
+import accessmodifier2.Parent;
+
+public class Child2 extends Parent{
+	// Child2는 accessmodifier3 패키지 소속
+	// Parent 는 accessmodifier2 패키지 소속으로
+	// 부모 자식간 클래스 소속이 다르다.
+	protected int e;
+	
+	// Child2의 getB 메서드는 Parent 의 b 에 접근합니다. 
+	// getB() 와 같이 내부 요소를 조회만 할 수 있고
+	// 수정은 할 수 없게 제한하는 메서드를 
+	// getter 라고 합니다. 
+	public void getB() {
+		System.out.println(b);
+	}
+	
+}

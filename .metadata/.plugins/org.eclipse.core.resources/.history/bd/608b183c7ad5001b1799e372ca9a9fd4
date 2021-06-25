@@ -1,0 +1,11 @@
+package polymorphism;
+
+public class Wooram extends Person{
+	private String hobby;
+	
+	public Wooram(String hobby) {
+		
+		hobby=this.hobby;
+		
+	}
+}

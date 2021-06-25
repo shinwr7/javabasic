@@ -1,0 +1,17 @@
+
+public class Bonus {
+	public static void main(String[] args) {
+		
+		int dec ;
+		for(int a = 1;a<=5;a++) {
+			System.out.print(1 + " ");
+			for(dec=5;dec>0;dec--) {
+				
+				
+				System.out.print(a+dec + " ");
+				
+			}
+		}
+		}
+	}
+

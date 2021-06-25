@@ -1,0 +1,19 @@
+package polymorphism;
+
+public class Wooram extends Person{
+	
+	private String hobby;
+	
+	public Wooram(String name, int age, String hobby) {
+		
+		super(name,age);
+		hobby=this.hobby;
+		
+	}
+	
+	public void showPerson() {
+		super.showPerson();
+		System.out.println("취미 : "+ this.hobby);
+		System.out.println("-----------");
+	}
+}

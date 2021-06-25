@@ -1,0 +1,39 @@
+package interaction.game;
+
+public class Main {
+	public static void main(String[] args) {
+		Dragon a = new Dragon() ;
+		Warrior b = new Warrior() ;
+		Priest p = new Priest() ;
+		Amazon z = new Amazon() ;
+		
+//		b.huntDragon(a);
+//		b.huntDragon(a);
+//		b.huntDragon(a);
+//		b.huntDragon(a);
+//		
+//		
+//		b.getWarriorInfo();
+//		a.getDragonInfo();
+//		
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+//		p.huntDragon(a);
+
+//		p.getPriestInfo();
+		
+		z.huntDragon(a);
+		z.huntDragon(a);
+		z.huntDragon(a);
+		z.getAmazonInfo();
+		a.getDragonInfo();
+		
+		
+	}
+}

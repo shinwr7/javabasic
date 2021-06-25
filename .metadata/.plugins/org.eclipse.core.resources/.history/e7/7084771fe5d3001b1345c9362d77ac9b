@@ -1,0 +1,28 @@
+package accessmodifier.game;
+
+public class ProtectedCommoner {
+	protected int hp;
+	protected int mp;
+	protected int lev;
+	protected int exp;
+	protected int atk;
+	
+
+	public ProtectedCommoner() {
+		hp= 100;
+		mp=50;
+		lev=1;
+		exp=0;
+		atk=10;
+				
+		System.out.println("-----스텟창-----");
+		System.out.println("현재 레벨 :"+ hp );
+		System.out.println("현재 체력 :"+ hp );
+		System.out.println("현재 마나 :"+ hp );
+		System.out.println("현재 공격력 :"+ hp );
+		System.out.println("현재 경험치 :"+ hp );
+	}
+}
+
+	
+

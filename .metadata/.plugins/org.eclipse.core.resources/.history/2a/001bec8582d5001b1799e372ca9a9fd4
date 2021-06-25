@@ -1,0 +1,13 @@
+package overloading;
+
+public class Main2 extends OverTest{
+	
+
+public static void main(String[] args) {
+	
+	OverTest o1 = new OverTest(a) ;
+	
+	}
+	
+	
+}

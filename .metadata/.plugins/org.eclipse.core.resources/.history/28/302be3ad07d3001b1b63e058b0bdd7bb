@@ -1,0 +1,6 @@
+package practice;
+
+public class Rsp {
+
+	 String [] arr1 {"rock", "sc", "paper"} ;
+}

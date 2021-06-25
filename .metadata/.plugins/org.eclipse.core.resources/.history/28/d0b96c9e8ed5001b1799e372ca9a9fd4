@@ -1,0 +1,16 @@
+package polymorphism.game;
+
+public class Dragon extends Monster {
+	private int hp, atk, def;
+	
+	
+	public Dragon (int hp, int atk, int def) {
+		super(hp, atk, def);
+	}
+	
+	public void battle () {
+	
+	}
+	
+	
+}

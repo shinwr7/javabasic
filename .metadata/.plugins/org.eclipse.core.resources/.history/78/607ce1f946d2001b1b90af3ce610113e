@@ -1,0 +1,16 @@
+package constructor;
+
+public class House {
+	
+	public String location;
+	public int size;
+	public String owner;
+	
+	public void getInfo() {
+		System.out.println("위치 : "+ location);
+		System.out.println("평수 : "+ size);
+		System.out.println("소유주 : "+ owner);
+		
+	}
+
+}

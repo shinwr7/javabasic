@@ -1,0 +1,20 @@
+package practice;
+
+public class Rsp {
+		
+		 public String[] com= {"r", "s", "p"} ;
+		 
+		 public void rock () {
+			  
+		 }
+		 
+		 public void scissors() {
+			 
+		 }
+		 
+		 public void paper () {
+			 
+		 }
+	}
+		
+	

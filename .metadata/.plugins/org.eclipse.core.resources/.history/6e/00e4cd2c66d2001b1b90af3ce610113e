@@ -1,0 +1,28 @@
+package constructor;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		constructor.Car car1 = new constructor.Car(100, 0, "신우람");
+		
+		structure.Car car2 = new structure.Car();
+		
+		
+		// 자동차 정보 조회
+		
+		car1.getInfo();
+		
+		car1.accelSpeed();
+		car1.accelSpeed();
+		car1.breakSpeed();
+		
+		car2.model = "k5";
+		car2.owner = "채종훈";
+		car2.price = 10000000;
+		
+		car2.getInfo();
+	
+	}
+
+}

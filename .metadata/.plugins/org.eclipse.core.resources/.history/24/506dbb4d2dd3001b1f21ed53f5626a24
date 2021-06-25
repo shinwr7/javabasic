@@ -1,0 +1,11 @@
+package thiskeyword;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		Person i = new Person("신우람", 20, 3000, "통계학");
+		
+		i.getInfo();
+		
+	}
+}

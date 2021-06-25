@@ -1,0 +1,9 @@
+package accessmodifier.game;
+
+public class Priest extends Commoner{
+	public Priest() {
+		setHp(getHp()-50);
+		setMp(getMp()+100);
+		
+	}
+}

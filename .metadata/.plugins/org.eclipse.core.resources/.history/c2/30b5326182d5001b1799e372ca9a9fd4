@@ -1,0 +1,14 @@
+package overloading;
+
+public class Main2 extends OverTest{
+	
+	public void showData() {
+		super.OverTest();
+	}
+public static void main(String[] args) {
+	
+
+	}
+	
+	
+}

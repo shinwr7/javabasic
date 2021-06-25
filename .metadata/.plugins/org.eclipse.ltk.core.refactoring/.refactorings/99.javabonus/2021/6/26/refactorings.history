@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;date210623.method.ㅡ먀ㅜ&apos; to &apos;Main&apos;&#x0D;&#x0A;- Original project: &apos;99.javabonus&apos;&#x0D;&#x0A;- Original element: &apos;date210623.method.ㅡ먀ㅜ&apos;&#x0D;&#x0A;- Renamed element: &apos;date210623.method.Main&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ㅡ먀ㅜ&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;date210623.method{ㅡ먀ㅜ.java[ㅡ먀ㅜ" matchStrategy="1" name="Main" qualified="false" references="true" similarDeclarations="false" stamp="1624433877855" textual="false" version="1.0"/>
+</session>

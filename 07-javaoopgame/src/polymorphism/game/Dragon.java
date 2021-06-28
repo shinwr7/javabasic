@@ -1,24 +1,25 @@
 package polymorphism.game;
 
 public class Dragon extends Monster {
-	private int hp, atk, def;
-	
 	
 	public Dragon () {
-		
-		hp = 50;
-		atk = 8;
-		def = 2;
-		
-		
+		super("드래곤",80 ,7,6);
+	
 	}
 	
-	public void battle (Player p) {
-		super.battle(p);
+	public void battle (Player player) {
+		{
+			if(getHp()<=0) {
+				System.out.println(super.getMonster()+"몬스터가 사망하였습니다.");
+				System.out.println("경험치 100 획득");
+				player.setExp(player.getExp()+100);
+				return;
+				}
+			super.battle(player);
+			
+	}
 	}
 	
-	public void getMonsterInfo(Dragon d) {
-		getMonsterInfo(this);
-	}
+	
 	
 }

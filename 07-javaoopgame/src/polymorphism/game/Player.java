@@ -2,43 +2,50 @@ package polymorphism.game;
 
 public class Player {
 	private int hp, mp, def, atk, lev, exp;
+	private String player;
 
-
-	public Player () {
-		hp = 50;
-		mp = 30;
-		def = 2;
-		atk = 9;
-		lev =1;
-		exp = 0;
-		
+	public Player (String player, int hp, int mp, int atk, int def, int lev, int exp) {
+		this.hp=hp;
+		this.mp=mp;
+		this.def=def;
+		this.atk=atk;
+		this.lev=lev;
+		this.exp=exp;
+		this.player=player;
 }
 	
+	
+
+	public String getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(String player) {
+		this.player = player;
+	}
+
 	public void hunt (Monster monster) {
 		if(monster.getDef()>=atk) {
-			System.out.println("몬스터의 방어력이 높습니다.");
-			System.out.println("몬스터에게 피해를 입힐 수 없습니다.");
+			System.out.println(monster.getMonster()+"몬스터의 방어력이 높습니다.");
+			System.out.println(monster.getMonster()+"몬스터에게 피해를 입힐 수 없습니다.");
+			monster.battle(this);
 			return;
 		}
 		if(monster.getHp()<=0) {
-			System.out.println("몬스터가 이미 죽어있습니다.");
+			System.out.println(monster.getMonster()+"몬스터가 이미 죽어있습니다.");
 			return;
 		}
-		if(this.hp<=0) {
+		if(getHp()<=0) {
 			System.out.println("플레이어가 행동 불능입니다.");
 			return;
 		}
-		System.out.println("몬스터에게 공격을 가합니다!");
-		monster.setHp(monster.getHp()-(atk-monster.getDef()));
-		System.out.println("몬스터에게"+(atk-monster.getDef())+"만큼의 피해를 입혔습니다.");
+		System.out.println(monster.getMonster()+"몬스터에게 공격을 가합니다!");
+		monster.setHp(monster.getHp()-(getAtk()-monster.getDef()));
+		System.out.println(monster.getMonster()+"몬스터에게"+(getAtk()-monster.getDef())+"만큼의 피해를 입혔습니다.");
 		monster.battle(this);
-		if(monster.getAtk()<=def) {
-			System.out.println("플레이어의 방어력이 높습니다.");
-			System.out.println("몬스터가 피해를 입힐 수 없습니다.");
-			return;
-		}
 		
-		if(hp<=0) {
+		
+		if(getHp()<=0) {
 			System.out.println("플레이어 사망");
 			return;
 		}
@@ -95,12 +102,15 @@ public class Player {
 	}
 	public void getPlayerInfo() {
 		System.out.println("------플레이어 상태-----");
-		System.out.println("레벨 : "+ lev);
-		System.out.println("체력 : "+ hp);
-		System.out.println("마나 : "+ mp);
-		System.out.println("방어 : "+ def);
-		System.out.println("경험치 : "+ exp);
-		System.out.println("공격력: "+ atk);
+		System.out.println("레벨 : "+ getLev());
+		System.out.println("체력 : "+ getHp());
+		System.out.println("마나 : "+ getMp());
+		System.out.println("방어 : "+ getDef());
+		System.out.println("경험치 : "+ getExp());
+		System.out.println("공격력: "+ getAtk());
 	}
 	
+	public void holyCross(Monster monster) {
+		
+	}
 }

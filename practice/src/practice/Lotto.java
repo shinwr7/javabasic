@@ -7,13 +7,10 @@ public class Lotto {
 	public static void main(String[] args) {
 		
 		Random r = new Random();
-		int lottoNum [] =new int [6];
-		int num = r.nextInt(45);
-		switch () {
-		
-		case 1. 
-		
-		
+			
+		for(int loop=0;loop<6;loop++) {
+			int num = r.nextInt(44);
+			System.out.println(num+1);
 		}
 		
 		

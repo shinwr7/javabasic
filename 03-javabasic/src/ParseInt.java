@@ -6,7 +6,7 @@ public class ParseInt {
 		// 자동으로 문자로 변경됩니다.
 		// 그러나 문자 전체가 정수로만 이루어진 문자열을
 		// 정수로 치환하기위해서는 별도의 문법을 사용합니다.
-		String str="2021a";
+		String str="2021";
 		int year = Integer.parseInt(str);
 		//Integer.parseInt(문자열) 을 입력시 정수로 교환해줌
 		

@@ -10,8 +10,8 @@ public class Main {
 	c1.eat();
 	d1.eat();
 	a1.eat();
-	
-	//자식타입을 베이스로 만든 부모타입 변수는 
+	 
+	 //자식타입을 베이스로 만든 부모타입 변수는 
 	//자식타입으로 강제로 바꿀 수 있다.
 	
 	Chicken chicken = (Chicken)c1;

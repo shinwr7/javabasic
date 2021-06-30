@@ -15,7 +15,13 @@ public class TryCatch2 {
 			
 		} catch(Exception e) {
 			System.out.println("배열에 할당된 최대 크기를 초과하는 값을 가져올 수 없습니다.");
-		} finally {
+		}
+		
+		// 더 넓은 의미의 catch 문장이 위에 있다면 밑에 있는 건 실행 안돼.
+		//  catch(ArithmeticException e) {
+			 // System.out.println("");
+	//}
+		  finally {
 			System.out.println("확인 끝.");
 		}
 	}

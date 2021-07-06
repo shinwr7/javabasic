@@ -1,7 +1,0 @@
-package accessmodifier.game;
-
-public class Priest extends Commoner{
-	public Priest() {
-		set
-	}
-}

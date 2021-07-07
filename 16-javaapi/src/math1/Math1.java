@@ -15,6 +15,7 @@ public class Math1 {
 		System.out.println(Math.floor(c));
 		
 		
+		
 	}
 
 }

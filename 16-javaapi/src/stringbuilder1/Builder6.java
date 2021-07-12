@@ -12,5 +12,6 @@ public class Builder6 {
 		// 작성해야합니다.
 		str.setCharAt(5, 'z');
 		System.out.println(str);
+		
 	}
 }

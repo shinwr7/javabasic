@@ -1,5 +1,6 @@
 package practice;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -21,7 +22,8 @@ public class Lotto {
 	}for (int i =0;i<6;i++) {
 	System.out.print(lottoNum[i]+ " ");
 	}
-		
+	
+	
 	}
 		
 	

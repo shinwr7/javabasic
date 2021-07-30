@@ -31,10 +31,17 @@
  		<b><h2>로또번호 생성 결과</h2></b>
  		이번주 로또는 이 번호다!! <br>
  		
- 		<%=Arrays.toString(lotto) %>
+ 		
  		
  	</p>
  	
+<%
+ for(Integer num : lotto) {
+	out.println(num + "&nbsp;");
+	Thread.sleep(1000); //CPU를 잠시 멈추는 메서드
+	out.flush(); // 브라우저의 출력 버퍼를 비우는 메서드.
+ }
+%>
  	
  
 </body>

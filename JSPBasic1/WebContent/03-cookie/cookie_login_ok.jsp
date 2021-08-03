@@ -33,7 +33,7 @@
 		// 지속시간은 20초입니다. 
 		// 완성 후 쿠키 발송까지 아래에 작성해주세요.
 		Cookie idCookie = new Cookie("user_id", id);
-		idCookie.setMaxAge(20);
+		idCookie.setMaxAge(1800);
 		response.addCookie(idCookie);
 		
 		// 체크박스 체크 되어 있을 경우, 아이디 비밀번호 자동입력을 위한

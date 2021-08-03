@@ -2,17 +2,26 @@
     pageEncoding="UTF-8"%>
     
   <%
+  	Cookie [] Cookies = request.getCookies();
   	// 로그인 창 만든 이후에 이미 로그인한 사람이 로그인창으로 오면
   	// 바로 로그인 완료창으로 보내주기 위해 작성할 부분입니다. 
   	// "user_id" 쿠키 존재 여부를 따져서 리다이렉트 시킵니다. 
-  	
+  	for(Cookie c : Cookies) {
+  		String s = c.getName();
+  		if(s.equals("user_id")) {
+  			response.sendRedirect("cookie_welcome.jsp");
+  		}
+  	}
   	
   	// 만약 아이디/비밀번호 기억하기가 체크되어 있는 경우
   	// 처리해주기 위해 쿠키에서 아이디/비밀번호 값을 추출하는 로직
   	//cookie_welcome.jsp 상단의 처리로직을 참고
-  	Cookie [] Cookies = request.getCookies();
   	String idMemory = "";
   	String pwMemory = "";
+  	
+  	if(Cookies ==null) {
+  		System.out.println("쿠키가 없습니다.");
+  	}else {
   	// cookies 변수에 쿠키가 여러개 들어있음.
   	// 반복문을 이용해 하나하나 c에 번갈아가면서 한번씩 대입해서 코드 진행
   	for(Cookie c : Cookies) {
@@ -35,7 +44,7 @@
   	// 저장받은 아이디/패스워드가 실제로 들어오는지 확인. 
   	System.out.println(idMemory);
   	System.out.println(pwMemory);
-  	
+  	}
   %>  
   
   

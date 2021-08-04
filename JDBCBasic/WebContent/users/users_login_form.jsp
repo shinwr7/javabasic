@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+   <%
+   	String idSession=(String)session.getAttribute("session_id");
+   if(idSession!=null) {
+	   response.sendRedirect("users_login_ok.jsp");
+   }
+   %> 
 <!DOCTYPE html>
 <html>
 <head>

@@ -3,6 +3,7 @@
     
     
    <%
+   	
    	String idSession=(String)session.getAttribute("session_id");
    if(idSession!=null) {
 	   response.sendRedirect("users_login_ok.jsp");

@@ -1,4 +1,6 @@
 
+<%@page import="kr.co.ictedu.UsersVO"%>
+<%@page import="kr.co.ictedu.UsersDAO"%>
 <%@ page import = "java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,53 +10,28 @@
  	response.setCharacterEncoding("utf-8");
  	request.setCharacterEncoding("utf-8");
  	
- 	String uid = (String)session.getAttribute("session_id");
- 	String upw = request.getParameter("pw");
+ 	String s_id = (String)session.getAttribute("session_id");
  	String s_pw = (String)session.getAttribute("session_pw");
+ 	String upw = request.getParameter("pw");
  	
  	
- 	Connection con = null;
- 	PreparedStatement pstmt = null;
+ 	//1. DAO 생성하고
  	
+ 	UsersDAO dao = UsersDAO.getInstance();
  	
+ 	//2. UsersVO를 생성하되, spw, sessionId만 setter로 넣어주세요.
+ 	UsersVO user = new UsersVO();
+ 	user.setUid(s_id);
+ 	user.setUpw(s_pw);
  	
- 	if(upw.equals(s_pw)) {
- 		
- 		try {
- 			
- 			
- 			Class.forName("com.mysql.jdbc.Driver");
- 			String url="jdbc:mysql://localhost/ict03";
- 			con=DriverManager.getConnection(url,"root","mysql");
- 			String sql="DELETE FROM users WHERE uid=?";
- 			pstmt=con.prepareStatement(sql);
- 			pstmt.setString(1, uid);
- 			pstmt.executeUpdate();
- 			
- 			
- 		} catch(ClassNotFoundException e) {
- 			System.out.println("드라이버 로딩 실패");
- 		} catch(SQLException e) {
- 			System.out.println("에러 : "+e);
- 		} finally {
- 			try {
- 				if(con!=null && !con.isClosed()){
-	   				   con.close();
-	   			   }
-	   			   if(pstmt!=null && !pstmt.isClosed()){
-	   				   pstmt.close();
-	   			   }
- 			} catch(SQLException e) {
- 				e.printStackTrace();
- 			}
- 		}
- 		
- 		// 세션 파기는 두번 실행할 수 없으므로
- 		// 로직당 한 번만 실행되도록 배치한다.
- 		session.invalidate();
- 		
- 	} else {
- 		session.invalidate();
+ 	//3. DAO의 deleteUsers 기능을 호출하면서 파라미터로 적절한 자료를 넘겨주세요.
+ 	int deleteResultNum=dao.usersDelete(user, upw);
+ 	
+ 	// 삭제로직이 잘 돌아가는지 디버깅
+ 	System.out.println(deleteResultNum);
+ 	session.invalidate();
+ 	
+ 	if(deleteResultNum ==0) {
  		response.sendRedirect("users_login_form.jsp");
  	}
  %>

@@ -41,9 +41,10 @@
 	</head>
 	<body>
 		<h1><%=uid %>님 환영합니다!</h1><br/>
-		<a href ="users_logout.jsp">로그아웃</a>
-		<a href ="users_delete_form.jsp">회원탈퇴</a>
-		<a href ="users_update_form.jsp">회원정보 수정</a>
+		<a href ="users_logout.jsp">로그아웃</a><br/>
+		<a href ="users_delete_form.jsp">회원탈퇴</a><br/>
+		<a href ="users_update_form.jsp">회원정보 수정</a><br/>
+		<a href ="users_get_all.jsp">회원 전체 목록 보기</a>
 	</body>
 	</html>
    

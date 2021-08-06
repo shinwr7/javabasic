@@ -1,5 +1,10 @@
 package kr.co.ictedu;
 import java.sql.*;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 //DAO 클래스는 DB연동을 전담해 처리합니다.
 
@@ -13,8 +18,10 @@ public class UsersDAO {
 	public static final int ID_DELETE_FAIL=0;
 	public static final int ID_LOGIN_SUCCESS=1;
 	public static final int ID_LOGIN_FAIL=1;
+	public static final int ID_UPDATE_SUCCESS=1;
+	public static final int ID_UPDATE_FAIL=0;
 	
-	
+	private DataSource ds ;
 	/*
 	 * DAO 클래스는 하나의 객체만으로도 DB연동을 수행할 수 있기 때문에
 	 * 메모리 관리 차원에서 클래스의 객체를 단 1개만 생성하도록
@@ -25,9 +32,16 @@ public class UsersDAO {
 	// 1. 외부에서 객체를 new 키워드로 만들어 쓸 수 없도록 생성자에 
 	// private를 붙여줍니다.
 	private UsersDAO() {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch(Exception e) {
+			
+			Context ct = new InitialContext();
+			ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysql");
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -48,12 +62,18 @@ public class UsersDAO {
 	// 대다수 입출력은 전부 VO를 매개로 진행합니다.
 	public int joinUsers(UsersVO user) {
 		//users_join.jsp에서 가져온 코드를 이곳에 붙여넣기를 합니다. 
-
+		
     	Connection con = null;
     	PreparedStatement pstmt = null;
+    	
+    	// JDBC 기준 DB접속 코드
+    	//con = DriverManager.getConnection(URL, DBID, DBPW);
+    				
+    	//커넥션 풀 기준 DB 접속 콛,
     	try {
     		
-    		con = DriverManager.getConnection(URL, DBID, DBPW);
+    		con = ds.getConnection();
+//    		con = DriverManager.getConnection(URL, DBID, DBPW);
     		String sql = "INSERT INTO users VALUES(?, ?, ?, ?)";
     		pstmt = con.prepareStatement(sql);
     		pstmt.setString(1, user.getUid());
@@ -99,8 +119,8 @@ public class UsersDAO {
 	    		if(user.getUpw().equals(dpw)) {
 	    			
 	    			// 비밀번호 맞았을 경우: 삭제로직 실행
-	    			
-		    		con = DriverManager.getConnection(URL, DBID, DBPW);
+	    			con = ds.getConnection();
+//		    		con = DriverManager.getConnection(URL, DBID, DBPW);
 		    		
 		    		String sql = "DELETE FROM users WHERE uid =?";
 		    		
@@ -143,8 +163,9 @@ public class UsersDAO {
    		ResultSet rs = null;
    		
 	   		try {
-	   			Class.forName("com.mysql.jdbc.Driver");
-	   			con=DriverManager.getConnection(URL, DBID, DBPW);
+	   			
+//	   			con=DriverManager.getConnection(URL, DBID, DBPW);
+	   			con = ds.getConnection();
 	   			String sql = "SELECT * FROM users WHERE uid=?";
 	   			pstmt=con.prepareStatement(sql);
 	   			pstmt.setString(1, logId);
@@ -158,14 +179,10 @@ public class UsersDAO {
 		   				return ID_LOGIN_SUCCESS;
 		   			}else return ID_LOGIN_FAIL;
 	   			
-	   			} else return ID_LOGIN_FAIL;
+	   				} else return ID_LOGIN_FAIL;
 	   			
 	   			
-	   			
-	   				
-	   		} catch(ClassNotFoundException e)  {
-	   			System.out.println("드라이버 로딩 실패");
-	   			
+	   				   				
 	   		} catch(SQLException e) {
 	   			System.out.println("에러 : "+e);
 	   		} finally {
@@ -208,8 +225,9 @@ public class UsersDAO {
    		UsersVO resultData = new UsersVO();
    		
    		try {
-   			Class.forName("com.mysql.jdbc.Driver");
-   			con=DriverManager.getConnection(URL, DBID, DBPW);
+   			
+   			con = ds.getConnection();
+//   	    con=DriverManager.getConnection(URL, DBID, DBPW);
    			String sql = "SELECT * FROM users WHERE uid=?";
    			pstmt=con.prepareStatement(sql);
    			pstmt.setString(1, user.getUid());
@@ -225,9 +243,7 @@ public class UsersDAO {
    				
    		
    				
-   		} catch(ClassNotFoundException e)  {
-   			System.out.println("드라이버 로딩 실패");
-   			
+   		
    		} catch(SQLException e) {
    			System.out.println("에러 : "+e);
    		} finally {
@@ -259,18 +275,19 @@ public class UsersDAO {
    		
    		try {
    			
-   			con=DriverManager.getConnection(URL, DBID, DBPW);
-   			String sql = "UPDATE users SET uid=?, upw=?, uname=?, email=? WHERE uid=?";
+   			con = ds.getConnection();
+//   		con=DriverManager.getConnection(URL, DBID, DBPW);
+   			String sql = "UPDATE users SET upw=?, uname=?, email=? WHERE uid=?";
    			pstmt=con.prepareStatement(sql);
-   			pstmt.setString(1, user.getUid());
-   			pstmt.setString(2, user.getUpw());
-   			pstmt.setString(3, user.getUname());
-   			pstmt.setString(4, user.getEmail());
-   			pstmt.setString(5, user.getUid());
+   			
+   			pstmt.setString(1, user.getUpw());
+   			pstmt.setString(2, user.getUname());
+   			pstmt.setString(3, user.getEmail());
+   			pstmt.setString(4, user.getUid());
    			
    			pstmt.executeUpdate();
    		
-   			return 1;
+   			return ID_UPDATE_SUCCESS;
    			
    		} catch (SQLException e) {
    			System.out.println("예외 : "+ e);
@@ -287,8 +304,83 @@ public class UsersDAO {
    		} catch(SQLException e) {
    			e.printStackTrace();
    		}
-   		} return 0;
-	}
+   		} return ID_UPDATE_FAIL;
+	} // userUpdate 끝
+	
+	
+	
+	// UsersVO 1개는 SELECT 구문의 row 한 줄 의미
+	// 전체 데이터는 회원 가입 상황에 따라 유동적이므로
+	// 길이를 정해놓고 로직을 짜면 안됩니다.
+	// 따라서 길이를 가변적으로 맞춰줄 수 있는 ArrayList로 UsersVO를 감싸 
+	// 조회 결과가 몇 줄이 나오던지 대응할 수 있도록 합니다.
+public ArrayList<UsersVO>getAllUser() {
+		
+		// DB 연결 후 입력받은 user의 .getUid()를 이용해 조회구문 완성
+		// 이후 ResultSet에 담겨있는 자료를 다시 다 꺼내서
+		// 새로 선언한 UsersVO 변수에 입력해준 후
+		// ResultSet에 있던 자료를 입력받은 UsersVO를 리턴
+		
+		Connection con = null;
+   		PreparedStatement pstmt = null;
+   		ResultSet rs = null;
+   	
+   		// 비어있는 ArrayList<UsersVO>도 같이 선언
+   		ArrayList<UsersVO> userList = new ArrayList<>();
+   		
+   		try {
+   			
+   			con = ds.getConnection();
+//   		con=DriverManager.getConnection(URL, DBID, DBPW);
+   			String sql = "SELECT * FROM users";
+   			pstmt=con.prepareStatement(sql);
+   			rs=pstmt.executeQuery();
+   			
+   			while(rs.next()) {
+   				// ArrayList에 넣어줄 빈 UsersVO를 생성
+   				UsersVO user = new UsersVO();
+   				// ResultSet에 든 컬럼별 값을 꺼냅니다.
+   				String uid = rs.getString("uid");
+   				String upw = rs.getString("upw");
+   				String uname = rs.getString("uname");
+   				String email = rs.getString("email");
+   				// UsersVO에 setter로 저장합니다.
+   				user.setUid(uid);
+   				user.setUpw(upw);
+   				user.setUname(uname);
+   				user.setEmail(email);
+   				// ArrayList에 그 UsersVO 를 저장합니다.
+   				userList.add(user);
+   			}
+			
+   				
+   		
+
+   	
+   		} catch(SQLException e) {
+   			System.out.println("에러 : "+e);
+   		} finally {
+   			
+   		 try {
+   			if(con!=null && !con.isClosed()){
+   				   con.close();
+   			   }
+   			   if(pstmt!=null && !pstmt.isClosed()){
+   				   pstmt.close();
+   			   }
+   			   if(rs!=null && !rs.isClosed()) {
+   				   rs.close();
+   			   }
+   			
+   		} catch(SQLException e) {
+   			e.printStackTrace();
+   		}
+   		}
+   		// 테이블에 있던 모든 자료를 가지고 있는 userList를 리턴
+   		return userList;
+		
+		
+	} // getAllUser END
 	
 	
 }

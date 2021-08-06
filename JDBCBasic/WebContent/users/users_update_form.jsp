@@ -41,9 +41,9 @@
 <body>
 	<h1><%=resultData.getUid()%>계정 정보 수정</h1>
 	<form action="users_update_ok.jsp" method="post">
-	<input type="text" name="id" value =<%=resultData.getUid() %> readonly placeholder ="ID">아이디 수정<br/>
-	<input type="text" name="pw" placeholder="PASSWORD">비밀번호 수정<br/>
-	<input type="text" name="name" value="<%=resultData.getUname() %>" placeholder = "NAME">이름 수정<br/>
+	<input type="text" name="id" value =<%=resultData.getUid() %> readonly required placeholder ="ID">아이디 수정<br/>
+	<input type="text" name="pw" placeholder="PASSWORD" required>비밀번호 수정<br/>
+	<input type="text" name="name" value="<%=resultData.getUname() %>" placeholder = "NAME" required>이름 수정<br/>
 	<input type="text" name="email" value="<%=resultData.getEmail()%>" placeholder = "EMAIL">이메일 수정<br/>
 	<input type="submit" value="계정정보 수정하기"><br/>
 	

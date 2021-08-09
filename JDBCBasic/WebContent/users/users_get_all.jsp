@@ -53,8 +53,8 @@
 		--%>
 		
 		<%--JSTL 적용 버전  --%>
-			
-			<c:forEach var="user" items="${allUser}">
+			<%// 스크립틀릿에서 생성된 객체는 표현식으로 사용해야함. %>
+			<c:forEach var="user" items="<%=allUser%>">
 				<tr>
 					<td>${user.uid }</td>
 					<td>${user.uname }</td>

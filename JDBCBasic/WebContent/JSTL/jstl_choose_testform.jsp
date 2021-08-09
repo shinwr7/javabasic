@@ -7,16 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-${10} <br/>
-${3.14}<br/>
-${"hello"}<br/>
-${true}<br/>
-${a + 20}<br/>
-<hr/>
-${a }<br/>
-${a<10 }<br/>
-${(a==15)?"a는 15와 같다" : "a는 15와 다르다" }<br/>
-${(a>10)||(a!=15)}<br/>
+	<form action="jstl_choose_test.jsp" method="get">
+		<input type="text" name="grade" placeholder="학점" required>
+		<input type="submit">
+	
+	</form>
 </body>
 </html>

@@ -7,16 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-${10} <br/>
-${3.14}<br/>
-${"hello"}<br/>
-${true}<br/>
-${a + 20}<br/>
-<hr/>
-${a }<br/>
-${a<10 }<br/>
-${(a==15)?"a는 15와 같다" : "a는 15와 다르다" }<br/>
-${(a>10)||(a!=15)}<br/>
+	<form action="/MyFirstWeb/mango" method="post">
+		이름 : <input type ="text" name="name"><br/>
+		비번 : <input type ="text" name="pw"><br/>
+		<input type="submit">
+	</form>
 </body>
 </html>

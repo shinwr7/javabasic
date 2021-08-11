@@ -27,7 +27,7 @@
 		
 		<tr>
 			<td>본문</td>	
-			<td><textarea cols="50" rows="10" readonly>${board.bcontent }</textarea>></td>	
+			<td><textarea cols="50" rows="10" readonly>${board.bcontent }</textarea></td>	
 		</tr>
 		<tr>
 			<td>글쓴이</td>	

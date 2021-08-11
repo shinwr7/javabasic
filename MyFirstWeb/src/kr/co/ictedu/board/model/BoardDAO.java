@@ -222,7 +222,7 @@ private BoardDAO() {
 		return resultCode;
 	} // delete 끝
 
-	public int update(String bid, String btitle, String bcontent) {
+	public int update(BoardVO board) {
 		
 		
 		Connection con = null;
@@ -234,17 +234,19 @@ private BoardDAO() {
 		//bDate는 자동으로 현재 서버시각을 입력함
 		// bHit는 자동으로 0을 입력
 		String sql = 
-			"UPDATE jspboard SET btitle=?, bcontent=? WHERE bid=?";
+			"UPDATE jspboard SET btitle=?, bcontent=?, bhit=?, bname=?, bdate=? WHERE bid=?";
 		try { 
 			
 		
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, btitle);
-			pstmt.setString(2, bcontent);
-			pstmt.setString(3, bid);
-			
+			pstmt.setString(1, board.getBtitle());
+			pstmt.setString(2, board.getBcontent());
+			pstmt.setInt(3, board.getBhit());
+			pstmt.setString(4, board.getBname());
+			pstmt.setTimestamp(5, board.getBdate());
+			pstmt.setInt(6, board.getBid());
 			pstmt.executeUpdate();
 			// 커넥션 생성 및 pstmt에 쿼리문 넣고 완성시켜서 실행까지 하고
 			// close()로 메모리회수까지 해주세요.

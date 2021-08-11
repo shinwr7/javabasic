@@ -18,6 +18,7 @@ public class BoardDetailService implements IBoardService{
 		
 		// DAO 에 글 번호를 넘겨서 detail 페이지 데이터를 얻어옵니다.
 		BoardVO board = dao.getBoardDetail(bId);
+		
 		// 포워딩을 위해 setAttribute()로 데이터를 실어줍니다.
 		request.setAttribute("board", board);
 		

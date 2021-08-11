@@ -120,7 +120,7 @@ public class PatternServlet extends HttpServlet {
 			sv.execute(request, response);
 			ui = "/board/board_update_form.jsp";
 			
-		} else if(uri.equals("/MyFirstWeb/boardupdate_ok.do")) {
+		} else if(uri.equals("/MyFirstWeb/boardupdateok.do")) {
 			sv = new BoardUpdateService();
 			sv.execute(request, response);
 			ui = "/boarddetail.do";

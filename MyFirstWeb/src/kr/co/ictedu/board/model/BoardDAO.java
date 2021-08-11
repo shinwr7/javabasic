@@ -153,6 +153,7 @@ private BoardDAO() {
 			pstmt.setString(1, bId);
 			rs=pstmt.executeQuery();
 			
+			
 			if(rs.next()) {
 				board.setBid(rs.getInt("bid"));
 				board.setBname(rs.getString("bname"));
@@ -182,4 +183,88 @@ private BoardDAO() {
 			}
 		} return board;
 	}// getBoardDetail 끝
-}
+	
+	public int delete(String bid) {
+		
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int resultCode ;
+		
+		String sql = "DELETE FROM jspboard WHERE bid=?";
+				
+		try { 
+			
+		
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, bid);
+			
+			pstmt.executeUpdate();
+			
+			resultCode = 1;
+		} catch(Exception e) {
+			e.printStackTrace();
+			resultCode = 0;
+		} finally {
+			try {
+				if(con!=null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return resultCode;
+	} // delete 끝
+
+	public int update(String bid, String btitle, String bcontent) {
+		
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int resultCode ;
+		//구문 작성
+		//bID는 auto_increment가 붙어있으므로 입력 안해도됌
+		//bName, bTitle, bContent는 폼에서 날려준걸 넣음
+		//bDate는 자동으로 현재 서버시각을 입력함
+		// bHit는 자동으로 0을 입력
+		String sql = 
+			"UPDATE jspboard SET btitle=?, bcontent=? WHERE bid=?";
+		try { 
+			
+		
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, btitle);
+			pstmt.setString(2, bcontent);
+			pstmt.setString(3, bid);
+			
+			pstmt.executeUpdate();
+			// 커넥션 생성 및 pstmt에 쿼리문 넣고 완성시켜서 실행까지 하고
+			// close()로 메모리회수까지 해주세요.
+			resultCode = 1;
+		} catch(Exception e) {
+			e.printStackTrace();
+			resultCode = 0;
+		} finally {
+			try {
+				if(con!=null && !con.isClosed()) {
+					con.close();
+				}
+				if(pstmt != null && !pstmt.isClosed()) {
+					pstmt.close();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return resultCode;
+	} // update 끝
+	}
+

@@ -36,7 +36,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	
+	<form><a href="/MyFirstWeb/board/board_write_form.jsp"><input type="button" value="글쓰기"></a></form>
 	
 </body>
 </html>

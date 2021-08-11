@@ -8,11 +8,11 @@ import kr.co.ictedu.board.model.BoardVO;
 
 public class BoardDetailService implements IBoardService{
 	
-	public void execute(HttpServletRequest request, HttpServletResponse reponse) {
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		//url 에 묻어온 글 번호를  getParameter 를 이용해 얻습니다. 
 		String bId = request.getParameter("bid"); 
-								
+							
 		// DAO 를 생성합니다
 		BoardDAO dao = BoardDAO.getInstance();
 		

@@ -12,16 +12,16 @@
 	<table border="1">
 		<tr>
 			<td>글제목</td>
-			<td><input type="text" name="title"></td>
+			<td><input type="text" name="title" required></td>
 		</tr>	
 		
 		<tr>
 			<td>본문</td>
-			<td><textarea cols="50" rows="10" name="content"></textarea></td>
+			<td><textarea cols="50" rows="10" name="content" required></textarea></td>
 		</tr>	
 		<tr>
 			<td>글쓴이</td>
-			<td><input type="text" name="writer"></td>
+		<td>${i_s}</td>
 			
 		</tr>	
 		<tr>

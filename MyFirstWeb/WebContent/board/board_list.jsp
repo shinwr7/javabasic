@@ -36,7 +36,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	<form><a href="/MyFirstWeb/board/board_write_form.jsp"><input type="button" value="글쓰기"></a></form>
+	<form><a href="/MyFirstWeb/board/board_write_form.jsp"><input type="button" value="글쓰기"></a>
+		<a href="/MyFirstWeb/logout.do"><input type="button" value="로그아웃" onClick="alert('로그아웃되었습니다.')"></a></form>
 	
 </body>
 </html>

@@ -108,6 +108,8 @@ private BoardDAO() {
 			board.setBid(rs.getInt("bid"));
 			board.setBcontent(rs.getString("bcontent"));
 			board.setBdate(rs.getTimestamp("bdate"));
+			board.setBhit(rs.getInt("bhit"));
+			
 			
 			boardList.add(board);
 		}
@@ -268,5 +270,43 @@ private BoardDAO() {
 		}
 		return resultCode;
 	} // update 끝
+	
+	public void upHit(String bid) {
+		// 필요 변수들을 생성
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		// 특정 글의 조회수를 1 올리는 쿼리문
+		String sql = "UPDATE jspboard SET bhit = bhit + 1 " +
+		"WHERE bid = ?";
+		
+		
+		// DB 연결 후 코드 실행
+		try { 
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			pstmt.executeUpdate();
+			
+					
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				
+				if(con!=null&&!con.isClosed()) {
+					con.close();
+				}
+				if(pstmt!=null&&!pstmt.isClosed()) {
+					pstmt.close();
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	}
 

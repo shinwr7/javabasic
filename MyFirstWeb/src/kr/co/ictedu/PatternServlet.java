@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.ictedu.board.service.BoardDeleteService;
 import kr.co.ictedu.board.service.BoardDetailService;
@@ -17,6 +18,9 @@ import kr.co.ictedu.board.service.BoardListService;
 import kr.co.ictedu.board.service.BoardUpdateService;
 import kr.co.ictedu.board.service.BoardWriteService;
 import kr.co.ictedu.board.service.IBoardService;
+import kr.ictedu.user.service.IUserService;
+import kr.ictedu.user.service.UserJoinService;
+import kr.ictedu.user.service.UserLoginService;
 
 /**
  * Servlet implementation class PatternServlet
@@ -72,11 +76,16 @@ public class PatternServlet extends HttpServlet {
 		// 서비스 호출을 위해 모든 서비스자료형을 받을 수 있는
 		// 인터페이스를 생성합니다.
 		IBoardService sv = null;
-		
+		IUserService usv = null;
 		// 해당 로직을 실행한 뒤에 넘어갈 .jsp 파일 명칭/경로 지정
 		String ui = null;
 		
 		// doGet에 있던 모든 코드를 가져옵니다.
+		// 세션 쓰는 법(세션 내장객체를 스크립트릿에서는 바로 session명칭으로
+		// 쓸 수 있었는데 서비스나 컨트롤러는 자바 코드라서 생성이 안 되어 있어서
+		// 세션이라는 내장객체를 쓰기 위해 선언하고 얻어오는겁니다.)
+		HttpSession session=null;
+		session = request.getSession();
 		
 		// 확장자 패턴에서 확장자를 포함한 주소값을 가져오기 위해서
 		// 아래 코드를 사용합니다.
@@ -96,8 +105,33 @@ public class PatternServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		if(uri.equals("/MyFirstWeb/join.do")) {
-			System.out.println("회원가입 요청 확인");
+			usv= new UserJoinService();
+			usv.execute(request, response);
+			
+			ui="/users/user_login.jsp";
+		}else if(uri.equals("/MyFirstWeb/logout.do")) {
+			session.invalidate();
+			ui = "/users/user_login.jsp";
+		
 		} else if(uri.equals("/MyFirstWeb/login.do")) {
+			usv = new UserLoginService();
+			usv.execute(request, response);
+			//세션에서 로그인 여부 확인
+			
+			String result = (String)session.getAttribute("login");
+			System.out.println("result세션 : "+result);
+					
+			
+			
+			
+			if(result!=null&&result.equals("fail")){
+				session.invalidate();
+				ui="/users/user_login.jsp";
+			} else {
+				ui="/boardselect.do";
+			}
+			
+			
 			System.out.println("로그인 요청 확인");
 		} else if(uri.equals("/MyFirstWeb/userupdate.do")) {
 			System.out.println("수정 요청 확인");
@@ -107,23 +141,31 @@ public class PatternServlet extends HttpServlet {
 			//게시판
 		} else if(uri.equals("/MyFirstWeb/boardwrite.do")) {
 			// 글쓰기에 필요한 로직을 호출하도록 서비스를 생성합니다.
+			
+			
+		
 			sv = new BoardWriteService();
 			//BoardWriteService의 execute를 호출하면 
 			// 복잡한 서비스 로직을 한 줄만 기입해서 처리 가능
 			sv.execute(request, response);
 			// 경로 저장시 / 는 WebContent 폴더가 기본으로 잡혀있습니다.
+					
 			ui = "/boardselect.do";
 			// 경로 저장 후에는 페이지 강제이동(forward)를 수행합니다.
-			
+					
+					
 		} else if(uri.equals("/MyFirstWeb/boardupdate.do")) {
+			
 			sv = new BoardDetailService();
 			sv.execute(request, response);
 			ui = "/board/board_update_form.jsp";
 			
 		} else if(uri.equals("/MyFirstWeb/boardupdateok.do")) {
+			
+			
 			sv = new BoardUpdateService();
 			sv.execute(request, response);
-			ui = "/boarddetail.do";
+			ui = "/boardd=etail.do";
 			
 		} else if(uri.equals("/MyFirstWeb/boarddelete.do")) {
 			System.out.println("글 삭제창으로 이동합니다.");

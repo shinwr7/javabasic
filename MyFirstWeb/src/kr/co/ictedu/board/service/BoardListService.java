@@ -37,12 +37,12 @@ public class BoardListService implements IBoardService{
 		//조회수 올리는 메서드
 		
 		List<BoardVO> boardList= dao.getBoardList();
-	
+		
 		// 받아온 리스트를 .jsp에 전달하기
 		// request 에 데이터를 실어놔야 합니다.
 		// request.setAttribute("명칭", 데이터);
 		request.setAttribute("boardList", boardList);
-	
+		
 		
 		
 		

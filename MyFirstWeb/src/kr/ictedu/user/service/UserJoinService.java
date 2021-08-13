@@ -50,7 +50,9 @@ public class UserJoinService implements IUserService{
 					
 			UsersDAO dao = UsersDAO.getInstance();
 			UsersVO user = new UsersVO(uid, upw, uname, email);
+			
 			int joinResult = dao.joinUsers(user);
+			
 			if(joinResult==1) {
 				System.out.println("회원가입 성공");
 			}else {

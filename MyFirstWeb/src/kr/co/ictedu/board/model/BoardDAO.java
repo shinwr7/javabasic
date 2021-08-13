@@ -7,6 +7,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Result;
+
 
 public class BoardDAO {
 	// 싱글턴 패턴과 커넥션 풀을 적용해서
@@ -306,7 +309,100 @@ private BoardDAO() {
 				e.printStackTrace();
 			}
 		}
+	} // upHit 끝
+	
+	public List<BoardVO> getPageList(int pageNum) {
+		// 내부에서 사용할 변수 선언
+		Connection con =null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		List<BoardVO> boardList = new ArrayList<BoardVO>();
+		String sql = "SELECT * FROM jspboard ORDER BY bid DESC limit ?, 10";
+		// 쿼리문(SELECT 구문, 역순, 10개씩 pageNum에 맞춰서);
+		
+			try {	
+				
+				con = ds.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, pageNum);
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardVO board = new BoardVO();
+					board.setBid(rs.getInt("bid"));
+					board.setBname(rs.getString("bname"));
+					board.setBtitle(rs.getString("btitle"));
+					board.setBcontent(rs.getString("bcontent"));
+					board.setBdate(rs.getTimestamp("bdate"));
+					board.setBhit(rs.getInt("bhit"));
+					
+					boardList.add(board);
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			
+			} finally {
+				
+				try {
+					if(con!=null && !con.isClosed()) {
+						con.close();
+					}
+					if(pstmt != null && !pstmt.isClosed()) {
+						pstmt.close();
+					}
+					if(rs !=null && !rs.isClosed()) {
+						rs.close();
+					}
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+		
+	} return boardList;
+			
+	}// paging 끝
+	
+	public int getCountBoard() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int countBoard = 0 ;
+		
+		String sql = "SELECT COUNT(*) FROM jspboard";
+		
+		try {
+			con = ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+			countBoard = rs.getInt(1);
+			}
+			
+					
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(con!=null&&!con.isClosed()) {
+					con.close();
+				}
+				if(pstmt!=null&&!pstmt.isClosed()) {
+					con.close();
+				}
+				if(rs!=null&&!rs.isClosed()) {
+					rs.close();
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return countBoard;
 	}
 	
-	}
+}
+	
 

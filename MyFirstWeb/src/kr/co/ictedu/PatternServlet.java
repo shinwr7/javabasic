@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import kr.co.ictedu.board.service.BoardDeleteService;
 import kr.co.ictedu.board.service.BoardDetailService;
 import kr.co.ictedu.board.service.BoardListService;
+import kr.co.ictedu.board.service.BoardPagingService;
 import kr.co.ictedu.board.service.BoardUpdateService;
 import kr.co.ictedu.board.service.BoardWriteService;
 import kr.co.ictedu.board.service.IBoardService;
@@ -111,7 +112,7 @@ public class PatternServlet extends HttpServlet {
 			ui="/users/user_login.jsp";
 		}else if(uri.equals("/MyFirstWeb/logout.do")) {
 			session.invalidate();
-			ui = "/users/user_login.jsp";
+			ui = "/users/user_login.jsp"; // 다시 질문해보자. 
 		
 		} else if(uri.equals("/MyFirstWeb/login.do")) {
 			usv = new UserLoginService();
@@ -185,9 +186,18 @@ public class PatternServlet extends HttpServlet {
 			
 		} else if(uri.equals("/MyFirstWeb/boardselect.do")) {
 			
-			sv = new BoardListService();
+//			sv = new BoardListService();
+//			sv.execute(request, response);
+//			ui = "/board/board_list.jsp";
+// 			위의 일반 전체게시물 가져오기를 페이징 가져오기로 대체해주세요!
+			
+			sv = new BoardPagingService();
 			sv.execute(request, response);
+			
 			ui = "/board/board_list.jsp";
+			
+			
+			
 		
 		}else {
 			out.print("잘못된 패턴입니다.");

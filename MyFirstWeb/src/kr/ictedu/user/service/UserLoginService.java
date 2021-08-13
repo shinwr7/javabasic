@@ -20,6 +20,7 @@ public class UserLoginService implements IUserService {
 			response.setCharacterEncoding("utf-8");
 			
 			//폼에서 날린 데이터 받기
+
 			String uid = request.getParameter("uid");
 			String upw = request.getParameter("upw");
 			UsersVO user = new UsersVO();

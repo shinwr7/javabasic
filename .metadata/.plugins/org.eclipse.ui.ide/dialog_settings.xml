@@ -29,8 +29,8 @@
 		<item key="ResourceWorkingSetFilter.STORE_WORKING_SET" value="Aggregate for window 1623724572434"/>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="275"/>
-		<item key="DIALOG_Y_ORIGIN" value="233"/>
+		<item key="DIALOG_X_ORIGIN" value="760"/>
+		<item key="DIALOG_Y_ORIGIN" value="246"/>
 	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">

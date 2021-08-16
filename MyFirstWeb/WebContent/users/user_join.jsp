@@ -17,6 +17,6 @@
 		<input type="text" name="email" placeholder="EMAIL"><br/>
 		<input type="submit" value="가입하기">
 	</form>
-	
+
 </body>
 </html>

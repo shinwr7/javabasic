@@ -19,6 +19,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\eclipse\workspace5"/>
 			<item value="C:\Users\ict03-14\Desktop\16-javaapi\src\date1"/>
 			<item value="C:\Users\ict03-14\Desktop\16-javaapi\src\calendar1"/>
 			<item value="C:\eclipse\workspace\16-javaapi\src"/>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="polymorphism.game.Monster"/>
-<fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="math1.Math5"/>
 <fullyQualifiedTypeName name="math1.Math6"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="kr.co.ictedu.board.service.BoardCountService"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="kr.co.ictedu.board.model.BoardPageDTO"/>
+<fullyQualifiedTypeName name="Chain.ChainTest"/>
+<fullyQualifiedTypeName name="test.ChainTest"/>
 </qualifiedTypeNameHistroy>

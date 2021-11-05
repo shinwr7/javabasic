@@ -166,7 +166,7 @@ public class PatternServlet extends HttpServlet {
 			
 			sv = new BoardUpdateService();
 			sv.execute(request, response);
-			ui = "/boardd=etail.do";
+			ui = "/boarddetail.do";
 			
 		} else if(uri.equals("/MyFirstWeb/boarddelete.do")) {
 			System.out.println("글 삭제창으로 이동합니다.");
